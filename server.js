@@ -12,6 +12,10 @@ require('dotenv').config()
 // ERROR/SUCCESS LOGS
 
 // MIDDLEWARE
+app.use(express.urlencoded({extended: true}))
+app.use(express.json())
+app.use(express.static('public'))
+app.use(methodOverride('_method'))
 
 // SEED DATA FUNCTION
 
