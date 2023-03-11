@@ -48,7 +48,7 @@ app.get('/captain-collector', (req, res) => {
 
 // NEW
 app.get('/captain-collector/new', (req, res) => {
-    res.send('new page')
+    res.render('new.ejs')
 })
 
 // D
