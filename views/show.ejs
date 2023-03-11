@@ -2,11 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Captain Collector</title>
 </head>
 <body>
-    
+    <%- include ('./partials/header.ejs') %>
+    <h1><%= comic.title %></h1> <br>
+    <img src="<%= comic.image %>" alt="<%= comic.image %>"> <br>
+    <h3>
+        Number: <%= comic.number %> <br>
+        Volume: <%= comic.volume %> <br>
+        Publisher: <%= comic.publisher %> <br>
+        Sold? <%= comic.sold %> <br>
+    </h3>
+
+    <a href="/captain-collector/<%= comic.id %>/edit">Edit</a>
+    <form action="/captain-collector/<%= comic.id %>?_method=DELETE">
+        <input type="submit" value="Delete">
+    </form>
 </body>
 </html>

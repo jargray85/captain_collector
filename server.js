@@ -59,7 +59,15 @@ app.get('/captain-collector/new', (req, res) => {
 
 // EDIT
 
-// S
+// SHOW
+app.get('/captain-collector/:id', (req, res) => {
+    Comic.findById(req.params.id, (err, foundComic) => {
+        if (err) {console.log(err)}
+        res.render('show.ejs', {
+            comic: foundComic
+        })
+    })
+})
 
 // PORT
 const PORT = process.env.PORT
