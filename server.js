@@ -17,6 +17,9 @@ mongoose.connect(process.env.DATABASE_URL, {
 })
 
 // ERROR/SUCCESS LOGS
+db.on('error', (err) => console.log(`${err.message} is MongoDB Not Running?`))
+db.on('connected', () => console.log('mongodb connected'))
+db.on('disconnected', () => console.log('mongo disconnected'))
 
 // MIDDLEWARE
 app.use(express.urlencoded({extended: true}))
