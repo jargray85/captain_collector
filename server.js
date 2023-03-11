@@ -58,6 +58,14 @@ app.get('/captain-collector/new', (req, res) => {
 // C
 
 // EDIT
+app.get('/captain-collector/:id/edit', (req, res) => {
+    Comic.findById(req.params.id, (err, foundComic) => {
+        if (err) {console.log(err)}
+        res.render('edit.ejs', {
+            comic: foundComic
+        })
+    })
+})
 
 // SHOW
 app.get('/captain-collector/:id', (req, res) => {

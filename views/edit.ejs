@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captain Collector</title>
+</head>
+<body>
+    <%- include ('./partials/header.ejs') %>
+    
+    <h1>Edit <%= comic.title %> </h1>
+    <form action="/captain-collector/<%= comic.id %>?_method=PUT" method="POST">
+        Title: <input type="text" name="title" value="<%= comic.title %>"> <br>
+        Image: <input type="text" name="image" value="<%= comic.image %>"> <br>
+        Number: <input type="number" name="number" value="<%= comic.number %>"> <br>
+        Volume: <input type="number" name="volume" value="<%= comic.volume %>"> <br>
+        Publisher: <input type="text" name="publisher" value="<%= comic.publisher %>"> <br>
+        Sold: <input type="checkbox" name="sold" value="<%= comic.sold %>"
+        <% if (comic.sold) { %>
+            checked
+        <% } %>
+        >
+    </form>
+</body>
+</html>
