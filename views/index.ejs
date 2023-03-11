@@ -8,9 +8,16 @@
 <body>
     <%- include ('./partials/header.ejs') %>
 
-    <h2> <%= comics.title %></h2>
     <ul>
-        
+        <% comics.forEach(comic => { %>
+            <li>
+                <a href="/captain-colletor/<%= comic.id %>"><%= comic.title %></a> <br>
+                <img src="<%= comic.image %>" alt=""> <br>
+                Number: <%= comic.number %> <br>
+                Volume: <%= comic.volume %> <br>
+                Publisher: <%= comic.publisher %> <br>
+            </li>
+      <%  }) %>
     </ul>
 </body>
 </html>
