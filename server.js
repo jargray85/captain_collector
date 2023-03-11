@@ -55,7 +55,14 @@ app.get('/captain-collector/new', (req, res) => {
 
 // U
 
-// C
+// CREATE
+app.post('/captain-collector', (req, res) => {
+    Comic.create(req.body, (err, createdComic) => {
+        if (err) {console.log(err)}
+        else {res.redirect('/captain-collector')
+        console.log(createdComic)}
+    })
+})
 
 // EDIT
 app.get('/captain-collector/:id/edit', (req, res) => {
