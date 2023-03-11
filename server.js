@@ -3,9 +3,10 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
+const session = require('express-session')
 require('dotenv').config()
 
-// GLOBAL CONFIRGURATION
+// GLOBAL CONFIGURATION
 
 // CONNECT TO MONGO
 
@@ -21,9 +22,15 @@ app.use(methodOverride('_method'))
 
 // ROUTES - I.N.D.U.C.E.S
 
-// I
+// INDEX
+app.get('/captain-collector', (req, res) => {
+    res.send('Index page')
+})
 
-// N
+// NEW
+app.get('/captain-collector/new', (req, res) => {
+    res.send('new page')
+})
 
 // D
 
@@ -32,6 +39,7 @@ app.use(methodOverride('_method'))
 // C
 
 // E
+
 
 // S
 
