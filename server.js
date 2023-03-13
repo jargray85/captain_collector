@@ -6,6 +6,8 @@ const methodOverride = require('method-override')
 const session = require('express-session')
 const Comic = require('./models/comics.js')
 require('dotenv').config()
+const comicsController = require('./controllers/comics.js')
+
 
 // GLOBAL CONFIGURATION
 const db = mongoose.connection
@@ -26,6 +28,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(express.static('public'))
 app.use(methodOverride('_method'))
+app.use('/captain-collector', comicsController)
 
 // SEED DATA FUNCTION
 // const seedData = require('./models/seed.js')
@@ -34,80 +37,6 @@ app.use(methodOverride('_method'))
 //     else {console.log(comics)}
 //     db.close()
 // })
-
-// ROUTES - I.N.D.U.C.E.S
-
-// INDEX
-app.get('/captain-collector', (req, res) => {
-    Comic.find({}, (err, allComics) => {
-        res.render('index.ejs', {
-            comics: allComics
-        })   
-    })  
-})
-
-// NEW
-app.get('/captain-collector/new', (req, res) => {
-    res.render('new.ejs')
-})
-
-// DELETE
-app.delete('/captain-collector/:id', (req, res) => {
-    Comic.findByIdAndDelete(req.params.id, (err, deleteComic) => {
-        if (err) {
-            console.log(err)
-            res.send(err)
-        } else {
-            console.log(deleteComic)
-            res.redirect('/captain-collector')
-        }
-    })
-})
-
-// UPDATE
-app.put('/captain-collector/:id', (req, res) => {
-    if (req.body.sold === 'on') {
-        req.body.sold = true
-    } else {
-        req.body.sold = false
-    }
-
-    Comic.findByIdAndUpdate(req.params.id, req.body, { new: true}, 
-        (err, updatedComic) => {
-            if (err) {console.log(err), res.send(err)}
-            else (console.log(updatedComic), res.redirect('/captain-collector'))
-        }
-        )
-})
-
-// CREATE
-app.post('/captain-collector', (req, res) => {
-    Comic.create(req.body, (err, createdComic) => {
-        if (err) {console.log(err)}
-        else {res.redirect('/captain-collector')
-        console.log(createdComic)}
-    })
-})
-
-// EDIT
-app.get('/captain-collector/:id/edit', (req, res) => {
-    Comic.findById(req.params.id, (err, foundComic) => {
-        if (err) {console.log(err)}
-        res.render('edit.ejs', {
-            comic: foundComic
-        })
-    })
-})
-
-// SHOW
-app.get('/captain-collector/:id', (req, res) => {
-    Comic.findById(req.params.id, (err, foundComic) => {
-        if (err) {console.log(err)}
-        res.render('show.ejs', {
-            comic: foundComic
-        })
-    })
-})
 
 // PORT
 const PORT = process.env.PORT
