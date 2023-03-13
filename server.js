@@ -51,9 +51,20 @@ app.get('/captain-collector/new', (req, res) => {
     res.render('new.ejs')
 })
 
-// D
+// DELETE
+app.delete('/captain-collector/:id', (req, res) => {
+    Comic.findByIdAndDelete(req.params.id, (err, deleteComic) => {
+        if (err) {
+            console.log(err)
+            res.send(err)
+        } else {
+            console.log(deleteComic)
+            res.redirect('/captain-collector')
+        }
+    })
+})
 
-// U
+// UPDATE
 
 // CREATE
 app.post('/captain-collector', (req, res) => {
