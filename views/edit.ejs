@@ -7,7 +7,7 @@
 </head>
 <body>
     <%- include ('./partials/header.ejs') %>
-    
+
     <h1>Edit <%= comic.title %> </h1>
     <form action="/captain-collector/<%= comic.id %>?_method=PUT" method="POST">
         Title: <input type="text" name="title" value="<%= comic.title %>"> <br>
@@ -19,7 +19,9 @@
         <% if (comic.sold) { %>
             checked
         <% } %>
-        >
+        > <br>
+
+        <input type="submit" value="Edit Comic">
     </form>
 </body>
 </html>

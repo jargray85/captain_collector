@@ -65,7 +65,20 @@ app.delete('/captain-collector/:id', (req, res) => {
 })
 
 // UPDATE
-app.put('/captain-collector/:id', )
+app.put('/captain-collector/:id', (req, res) => {
+    if (req.body.sold === 'on') {
+        req.body.sold = true
+    } else {
+        req.body.sold = false
+    }
+
+    Comic.findByIdAndUpdate(req.params.id, req.body, { new: true}, 
+        (err, updatedComic) => {
+            if (err) {console.log(err), res.send(err)}
+            else (console.log(updatedComic), res.redirect('/captain-collector'))
+        }
+        )
+})
 
 // CREATE
 app.post('/captain-collector', (req, res) => {
