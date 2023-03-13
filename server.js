@@ -65,6 +65,7 @@ app.delete('/captain-collector/:id', (req, res) => {
 })
 
 // UPDATE
+app.put('/captain-collector/:id', )
 
 // CREATE
 app.post('/captain-collector', (req, res) => {
