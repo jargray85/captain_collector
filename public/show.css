@@ -50,8 +50,11 @@ h3 {
 }
 
 #buttons-container {
-    display: inline-flex;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 1em;
 }
 
 button {
