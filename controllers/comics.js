@@ -39,11 +39,6 @@ router.delete('/:id', (req, res) => {
 
 // UPDATE
 router.put('/:id', (req, res) => {
-    if (req.body.sold === 'on') {
-        req.body.sold = true
-    } else {
-        req.body.sold = false
-    }
 
     Comic.findByIdAndUpdate(req.params.id, req.body, { new: true}, 
         (err, updatedComic) => {

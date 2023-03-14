@@ -7,7 +7,6 @@ const comicSchema = new mongoose.Schema ({
     number: Number,
     volume: Number,
     publisher: String,
-    sold: Boolean
 })
 
 const Comic = mongoose.model('Comic', comicSchema)

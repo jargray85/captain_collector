@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/new.css">
     <title>Captain Collector</title>
 </head>
 <body>
     <%- include ('./partials/header.ejs') %>
 
-    <h1>Add New Comic to Captain-Collector</h1>
+    <h2>Add New Comic to Captain-Collector</h2>
     <form action="/captain-collector" method="POST">
         Title: <input type="text" name="title"> <br>
         Image: <input type="text" name="image"> <br>
         Number: <input type="number" name="number"> <br>
         Volume: <input type="number" name="volume"> <br>
         Publisher: <input type="text" name="publisher"> <br>
-        Sold: <input type="checkbox" name="sold" id=""> <br>
         <input type="submit" value="Add New Comic">
     </form>
 </body>

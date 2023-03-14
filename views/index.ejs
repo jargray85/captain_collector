@@ -3,23 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
     <title>Captain Collector</title>
 </head>
 <body>
     <%- include ('./partials/header.ejs') %>
     <h4>
-        <a href="captain-collector/new">Add New Comic</a>
+        <a href="captain-collector/new" id="add-new">Add New Comic</a>
     </h4>
 
     <ul>
         <% comics.forEach(comic => { %>
+        <div>
             <li>
-                <a href="/captain-collector/<%= comic.id %>"><%= comic.title %></a> <br>
+                <a href="/captain-collector/<%= comic.id %>" id="comic-title"><%= comic.title %></a> <br>
                 <img src="<%= comic.image %>" alt=""> <br>
                 Number: <%= comic.number %> <br>
                 Volume: <%= comic.volume %> <br>
                 Publisher: <%= comic.publisher %> <br>
             </li>
+        </div>
       <%  }) %>
     </ul>
 </body>

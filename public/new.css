@@ -6,11 +6,6 @@ body {
     background-repeat: no-repeat;
 }
 
-a {
-    text-decoration: none;
-    color: antiquewhite;
-}
-
 h1 {
     text-align: center;
     font-family: 'Bangers';
@@ -23,46 +18,19 @@ h1 {
     color: antiquewhite;
 }
 
-img {
-    height: 300px;
-    width: 200px;
-    margin-top: 5%;
+h2 {
+    text-align: center;
+    font-family: 'Bangers';
+    font-size: 250%;
+    margin-bottom: 1%;
 }
 
-ul {
+form {
     text-align: center;
     list-style-type: none;
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-evenly;
     margin: 0;
     padding: 0;
-}
-
-li {
+    line-height: 2.5;
     font-family: 'Bangers';
-    font-size: 175%;
-}
-
-div {
-    border: 3px solid;
-    padding: 10px;
-    background-image: url(https://media.istockphoto.com/id/1318099651/vector/comic-explosion-background-vector-illustration.jpg?s=612x612&w=0&k=20&c=EEobfb9GTOkHjrP1Y3uBWllZkVsPp2Qxj8cX73CiNo8=);
-    background-size: contain;
-    border-radius: 10px;
-}
-
-h4 {
-    text-align: center;
-    font-family: 'Bangers';
-    font-size: 175%;
-    text-decoration: none;
-}
-
-#add-new {
-    color: red;
-}
-
-#comic-title {
-    color: black;
 }
