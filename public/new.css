@@ -33,4 +33,13 @@ form {
     padding: 0;
     line-height: 2.5;
     font-family: 'Bangers';
+    font-size: 125%;
+    color: orange;
+}
+
+#new-comic-button {
+    margin-top: 3%;
+    font-family: 'Bangers';
+    font-size: 150%;
+    background-image: url(https://media.istockphoto.com/id/1318099651/vector/comic-explosion-background-vector-illustration.jpg?s=612x612&w=0&k=20&c=EEobfb9GTOkHjrP1Y3uBWllZkVsPp2Qxj8cX73CiNo8=);
 }
