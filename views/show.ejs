@@ -3,22 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/show.css">
     <title>Captain Collector</title>
 </head>
 <body>
     <%- include ('./partials/header.ejs') %>
-    <h1><%= comic.title %></h1> <br>
-    <img src="<%= comic.image %>" alt="<%= comic.image %>"> <br>
+    <h2><%= comic.title %></h2> 
+        
     <h3>
-        Number: <%= comic.number %> <br>
+        Number: <%= comic.number %> <br> 
         Volume: <%= comic.volume %> <br>
-        Publisher: <%= comic.publisher %> <br>
-        Sold? <%= comic.sold %> <br>
+        Publisher: <%= comic.publisher %> 
     </h3>
 
-    <a href="/captain-collector/<%= comic.id %>/edit">Edit</a>
-    <form action="/captain-collector/<%= comic.id %>?_method=DELETE" method="POST">
-        <input type="submit" value="Delete">
-    </form>
+    <div id="image-container">
+        <img src="<%= comic.image %>" alt="<%= comic.image %>"> <br>
+    </div>
+
+    <div id="buttons-container">
+        <form action="/captain-collector/<%= comic.id %>/edit" method="get">
+            <button type="submit">Edit</button>
+        </form>
+   
+        <form action="/captain-collector/<%= comic.id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+    </div>
 </body>
 </html>
