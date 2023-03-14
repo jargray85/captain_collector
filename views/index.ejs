@@ -14,7 +14,7 @@
 
     <ul>
         <% comics.forEach(comic => { %>
-        <div>
+        <div id="comic-container">
             <li>
                 <a href="/captain-collector/<%= comic.id %>" id="comic-title"><%= comic.title %></a> <br>
                 <img src="<%= comic.image %>" alt=""> <br>

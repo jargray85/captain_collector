@@ -6,7 +6,7 @@ body {
     background-repeat: no-repeat;
 }
 
-a {
+/* a {
     text-decoration: none;
     color: antiquewhite;
 }
@@ -16,12 +16,12 @@ h1 {
     font-family: 'Bangers';
     font-size: 700%;
     margin-bottom: 1%;
-}
+} */
 
-#main-link {
+/* #main-link {
     text-decoration: none;
     color: antiquewhite;
-}
+} */
 
 img {
     height: 300px;
@@ -44,7 +44,7 @@ li {
     font-size: 175%;
 }
 
-div {
+#comic-container {
     border: 3px solid;
     padding: 10px;
     background-image: url(https://media.istockphoto.com/id/1318099651/vector/comic-explosion-background-vector-illustration.jpg?s=612x612&w=0&k=20&c=EEobfb9GTOkHjrP1Y3uBWllZkVsPp2Qxj8cX73CiNo8=);
