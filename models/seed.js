@@ -5,7 +5,6 @@ module.exports = [
         number: 1,
         volume: 1,
         publisher: 'Marvel',
-        sold: false
     },
     {
         title: 'Detective Comics',
@@ -13,7 +12,6 @@ module.exports = [
         number: 27,
         volume: 1,
         publisher: 'DC',
-        sold: false
     },
     {
         title: 'Journey Into Mystery',
@@ -21,6 +19,5 @@ module.exports = [
         number: 83,
         volume: 1,
         publisher: 'Marvel',
-        sold: false
     },
 ]
