@@ -19,6 +19,20 @@ router.get('/', (req, res) => {
     })  
 })
 
+// ** SEARCH **
+router.get('/search', (req, res) => {
+    const query = req.query.search
+    Comic.find({ title: { $regex: 'query', $options: 'i' }}, (err, searchResults) => {
+        if (err) {console.log(err)}
+        else {
+            res.render('searchresults.ejs', {
+                results: searchResults
+            })
+        }
+        
+    })
+})
+
 // NEW
 router.get('/new', (req, res) => {
     res.render('new.ejs')
@@ -76,5 +90,7 @@ router.get('/:id', (req, res) => {
         })
     })
 })
+
+
 
 module.exports = router

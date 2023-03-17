@@ -6,16 +6,20 @@
     <title>Captain Collector</title>
 </head>
 <body>
+    <%- include ('./partials/header.ejs') %>
+
     <% if (results.length > 0) { %>
         <% results.forEach((result) => { %>
           <div>
-            <h2><%= comic.title %></h2> 
-        
+            <h2><%= result.title %></h2> 
+            
             <h3>
-                Number: <%= comic.number %> <br> 
-                Volume: <%= comic.volume %> <br>
-                Publisher: <%= comic.publisher %> 
+                Number: <%= result.number %> <br> 
+                Volume: <%= result.volume %> <br>
+                Publisher: <%= result.publisher %> <br>
             </h3>
+
+            <img src="<%= result.image %>" alt="">
           </div>
         <% }); %>
       <% } else { %>
