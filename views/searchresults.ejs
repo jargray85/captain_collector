@@ -8,11 +8,13 @@
 </head>
 <body>
     <%- include ('./partials/header.ejs') %>
+    
+    <h2>Search Results</h2>
 
     <% if (comics.length > 0) { %>
         <% comics.forEach((comic) => { %>
-          <div>
-            <h2><%= comic.title %></h2> 
+          <div id="results-container">
+            <a href="/captain-collector/<%= comic.id %>" id="comic-title"><%= comic.title %></a> <br> 
             
             <h3>
                 Number: <%= comic.number %> <br> 
