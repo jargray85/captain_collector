@@ -25,11 +25,11 @@ router.get('/search', (req, res) => {
     Comic.find({ title: { $regex: `${searchQuery}`, $options: 'i' }}, (err, searchResults) => {
         if (err) {console.log(err)}
         else {
+            console.log(searchResults)
             res.render('searchresults.ejs', {
-                results: searchResults
+                comics: searchResults
             })
         }
-        
     })
 })
 

@@ -8,19 +8,19 @@
 <body>
     <%- include ('./partials/header.ejs') %>
 
-    <% if (results.length > 0) { %>
-        <% results.forEach((result) => { %>
+    <% if (comics.length > 0) { %>
+        <% comics.forEach((comic) => { %>
           <div>
-            <h2><%= result.title %></h2> 
+            <h2><%= comic.title %></h2> 
             
             <h3>
-                Number: <%= result.number %> <br> 
-                Volume: <%= result.volume %> <br>
-                Publisher: <%= result.publisher %> <br>
-                Year: <%= result.year %> <br>
+                Number: <%= comic.number %> <br> 
+                Volume: <%= comic.volume %> <br>
+                Publisher: <%= comic.publisher %> <br>
+                Year: <%= comic.year %> <br>
             </h3>
 
-            <img src="<%= result.image %>" alt="">
+            <img src="<%= comic.image %>" alt="">
           </div>
         <% }); %>
       <% } else { %>
