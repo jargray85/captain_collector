@@ -18,6 +18,7 @@ h2 {
     font-family: 'Bangers';
     font-size: 3.5em;
     text-decoration: none;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 a {
@@ -25,6 +26,7 @@ a {
     color: antiquewhite;
     font-size: 1.5em;
     font-family: 'Bangers';
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 #main-link {
@@ -47,6 +49,7 @@ h3 {
     font-family: 'Bangers';
     font-size: 1.5em;
     text-decoration: none;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 #buttons-container {
@@ -61,6 +64,7 @@ button {
     text-align: center;
     margin-top: 5%;
     font-family: 'Bangers';
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     font-size: 1.5em;
     background-image: url(https://media.istockphoto.com/id/1318099651/vector/comic-explosion-background-vector-illustration.jpg?s=612x612&w=0&k=20&c=EEobfb9GTOkHjrP1Y3uBWllZkVsPp2Qxj8cX73CiNo8=);
 }
