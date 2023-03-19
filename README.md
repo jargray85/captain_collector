@@ -14,7 +14,7 @@ WIREFRAMES
 
 ![Screenshot 2023-03-06 at 5 56 38 PM](https://user-images.githubusercontent.com/109626875/226110771-c98fa560-9742-444c-9465-f2e4ce444d7b.png)
 
-![Screenshot 2023-03-06 at 6 14 47 PM](https://user-images.githubusercontent.com/109626875/226110788-f3762975-d10c-440e-99f9-49d1d821aff7.png)
+![Screenshot 2023-03-06 at 6 04 06 PM](https://user-images.githubusercontent.com/109626875/226148561-bab5b046-d844-4164-bae9-97ff4338b1fa.png)
 
 
 LINK TO APP
