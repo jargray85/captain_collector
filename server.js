@@ -3,11 +3,22 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
-const session = require('express-session')
 const Comic = require('./models/comics.js')
 require('dotenv').config()
 const comicsController = require('./controllers/comics.js')
+const usersController = require('./controllers/users.js')
+const session = require('express-session')
 
+// Sessions
+const SESSION_SECRET = process.env.SESSION_SECRET
+console.log('Here is the session secret')
+console.log(SESSION_SECRET)
+// Secret
+app.use(session({
+    secret: SESSION_SECRET, 
+    resave: false, // https://www.npmjs.com/package/express-session#resave
+    saveUninitialized: false // ^^
+}))
 
 // GLOBAL CONFIGURATION
 const db = mongoose.connection
@@ -29,6 +40,7 @@ app.use(express.json())
 app.use(express.static('public'))
 app.use(methodOverride('_method'))
 app.use('/captain-collector', comicsController)
+app.use('/users', usersController)
 
 // SEED DATA FUNCTION
 // const seedData = require('./models/seed.js')
