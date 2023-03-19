@@ -7,6 +7,21 @@ const router = express.Router()
 // Require model
 const Comic = require('../models/comics.js')
 
+// AUTH middleware
+const authRequired = (req, res, next) => {
+    console.log(req.session.currentUser)
+    if (req.session.currentUser) {
+        // a user is signed in
+        next()
+        // next is part of express, it does what it says: a continue in code
+        // i.e. "go on to the next thing"
+    } else {
+        // if there is no user
+        res.send('You must be logged in to do that')
+        res.redirect('/users/signin')
+    }
+}
+
 
 // ROUTES - I.N.D.U.C.E.S
 
@@ -34,13 +49,13 @@ router.get('/search', (req, res) => {
 })
 
 // NEW
-router.get('/new', (req, res) => {
+router.get('/new', authRequired, (req, res) => {
     res.render('new.ejs')
 })
 
 // DELETE
 router.delete('/:id', (req, res) => {
-    Comic.findByIdAndDelete(req.params.id, (err, deleteComic) => {
+    Comic.findByIdAndDelete(req.params.id, authRequired, (err, deleteComic) => {
         if (err) {
             console.log(err)
             res.send(err)
@@ -73,7 +88,7 @@ router.post('/', (req, res) => {
 
 // EDIT
 router.get('/:id/edit', (req, res) => {
-    Comic.findById(req.params.id, (err, foundComic) => {
+    Comic.findById(req.params.id, authRequired, (err, foundComic) => {
         if (err) {console.log(err)}
         res.render('edit.ejs', {
             comic: foundComic

@@ -16,8 +16,8 @@ console.log(SESSION_SECRET)
 // Secret
 app.use(session({
     secret: SESSION_SECRET, 
-    resave: false, // https://www.npmjs.com/package/express-session#resave
-    saveUninitialized: false // ^^
+    resave: true, // https://www.npmjs.com/package/express-session#resave
+    saveUninitialized: true // ^^
 }))
 
 // GLOBAL CONFIGURATION

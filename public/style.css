@@ -2,7 +2,7 @@
 
 body {
     background-image: url(https://img.freepik.com/premium-vector/blue-comic-book-page-background-pop-art-style-with-empty-space-template-with-rays-dots-halftone-effect-texture-vector-illustration_515038-4536.jpg?w=2000);
-    background-size: cover;
+    background-size: contain;
 }
 
 #search-container {
