@@ -26,7 +26,7 @@ const authRequired = (req, res, next) => {
 // ROUTES - I.N.D.U.C.E.S
 
 // INDEX
-router.get('/', (req, res) => {
+router.get('/captain-collector', (req, res) => {
     Comic.find({}, (err, allComics) => {
         res.render('index.ejs', {
             comics: allComics
