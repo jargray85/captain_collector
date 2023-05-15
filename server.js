@@ -39,7 +39,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(express.static('public'))
 app.use(methodOverride('_method'))
-app.use('/', comicsController)
+app.use('/captain-collector', comicsController)
 app.use('/users', usersController)
 
 // SEED DATA FUNCTION
