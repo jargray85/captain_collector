@@ -18,7 +18,7 @@ const authRequired = (req, res, next) => {
     } else {
         // if there is no user
         res.send('You must be logged in to do that')
-        res.redirect('/users/signin')
+        res.redirect('/captain-collector/users/signin')
     }
 }
 
@@ -49,13 +49,13 @@ router.get('/search', (req, res) => {
 })
 
 // NEW
-router.get('/new', authRequired, (req, res) => {
+router.get('/new', (req, res) => {
     res.render('new.ejs')
 })
 
 // DELETE
 router.delete('/:id', (req, res) => {
-    Comic.findByIdAndDelete(req.params.id, authRequired, (err, deleteComic) => {
+    Comic.findByIdAndDelete(req.params.id, (err, deleteComic) => {
         if (err) {
             console.log(err)
             res.send(err)
@@ -88,7 +88,7 @@ router.post('/', (req, res) => {
 
 // EDIT
 router.get('/:id/edit', (req, res) => {
-    Comic.findById(req.params.id, authRequired, (err, foundComic) => {
+    Comic.findById(req.params.id, (err, foundComic) => {
         if (err) {console.log(err)}
         res.render('edit.ejs', {
             comic: foundComic
