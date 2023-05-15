@@ -99,20 +99,12 @@ router.get('/:id/edit', (req, res) => {
 // SHOW
 router.get('/:id', (req, res) => {
     Comic.findById(req.params.id, (err, foundComic) => {
-        if (err) {
-            console.log(err)
-            res.send('Error finding comic')
-        } else if (!foundComic) {
-            res.send('Comic not found')
-        } else {
-            console.log(foundComic)
-            res.render('show.ejs', {
-                comic: foundComic
-            })
-        }
+        if (err) {console.log(err)}
+        res.render('show.ejs', {
+            comic: foundComic
+        })
     })
 })
-
 
 
 
