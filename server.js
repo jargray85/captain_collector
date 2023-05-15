@@ -24,7 +24,7 @@ app.use(session({
 const db = mongoose.connection
 
 // CONNECT TO MONGO
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(process.env.DATABASE_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
