@@ -1,34 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Rampart+One&display=swap');
 
-h1 {
+.container {
     text-align: center;
+    position: relative;
 }
 
-#main-link
-{   
-  background-image: linear-gradient(
-    -225deg,
-    #231557 0%,
-    #7b33c9 29%,
-    #ff1361 67%,
-    #fff800 100%
-  );
-  font-family: 'Bangers';
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 3.0s linear infinite;
-  display: inline-block;
-  font-size: 4em;
-  padding-right: 10px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+.links {
+    position: absolute;
+    top: -10px;
+    right: 0;
+}
+
+#main-link {
+    background-image: linear-gradient(
+        -225deg,
+        #231557 0%,
+        #7b33c9 29%,
+        #ff1361 67%,
+        #fff800 100%
+    );
+    font-family: 'Bangers';
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 3.0s linear infinite;
+    font-size: 4em;
+    padding-right: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+#register-link,
+#signin-link {
+    color: #000;
+    margin-left: 10px;
+}
+
+#register-link:hover,
+#signin-link:hover {
+    color: #ff1361;
 }
 
 @keyframes textclip {
-  to {
-    background-position: 200% center;
-  }
+    to {
+        background-position: 200% center;
+    }
 }
