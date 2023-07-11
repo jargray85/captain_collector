@@ -27,7 +27,10 @@ const db = mongoose.connection
 mongoose.connect(process.env.DATABASE_URL + '/captain-collector', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    dbName: 'captain-collector'
+    dbName: 'captain-collector',
+    writeConcern: {
+        w: 'majority'
+    }
 })
 
 // ERROR/SUCCESS LOGS
