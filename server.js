@@ -5,8 +5,8 @@ const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 const Comic = require('./models/comics.js')
 require('dotenv').config()
-const comicsController = require('./controllers/comics.js')
 const usersController = require('./controllers/users.js')
+const comicsController = require('./controllers/comics.js')
 const session = require('express-session')
 
 // Sessions
