@@ -29,7 +29,8 @@ const authRequired = (req, res, next) => {
 router.get('/', (req, res) => {
     Comic.find({}, (err, allComics) => {
         res.render('index.ejs', {
-            comics: allComics
+            comics: allComics,
+            currentUser: req.session.currentUser
         })   
     })  
 })
@@ -50,11 +51,11 @@ router.get('/search', (req, res) => {
 
 // NEW
 router.get('/new', (req, res) => {
-    res.render('new.ejs')
+    res.render('new.ejs', { currentUser: req.session.currentUser })
 })
 
 // DELETE
-router.delete('/:id', (req, res) => {
+router.delete('/:id', authRequired, (req, res) => {
     Comic.findByIdAndDelete(req.params.id, (err, deleteComic) => {
         if (err) {
             console.log(err)
@@ -67,8 +68,7 @@ router.delete('/:id', (req, res) => {
 })
 
 // UPDATE
-router.put('/:id', (req, res) => {
-
+router.put('/:id', authRequired, (req, res) => {
     Comic.findByIdAndUpdate(req.params.id, req.body, { new: true}, 
         (err, updatedComic) => {
             if (err) {console.log(err), res.send(err)}
@@ -87,7 +87,7 @@ router.post('/', (req, res) => {
 })
 
 // EDIT
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', authRequired, (req, res) => {
     Comic.findById(req.params.id, (err, foundComic) => {
         if (err) {console.log(err)}
         res.render('edit.ejs', {
@@ -101,7 +101,8 @@ router.get('/:id', (req, res) => {
     Comic.findById(req.params.id, (err, foundComic) => {
         if (err) {console.log(err)}
         res.render('show.ejs', {
-            comic: foundComic
+            comic: foundComic,
+            currentUser: req.session.currentUser
         })
     })
 })

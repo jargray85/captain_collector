@@ -8,7 +8,7 @@ const User = require('../models/users.js')
 
 // Route for User registration page
 router.get('/register', (req, res) => {
-    res.render('users/register.ejs')
+    res.render('users/register.ejs', { currentUser: req.session.currentUser })
 })
 
 // Registration Post route
@@ -36,7 +36,7 @@ router.post('/register', (req, res) => {
 
 // Sign in page route
 router.get('/signin', (req, res) => {
-    res.render('users/signin.ejs')
+    res.render('users/signin.ejs', { currentUser: req.session.currentUser })
 })
 
 // Sign in post route
