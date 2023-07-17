@@ -4,6 +4,9 @@ const express = require('express')
 // Add express router 
 const router = express.Router()
 
+// Require User (for each unique user adding comics to their collection)
+const User = require('../models/users.js')
+
 // Require model
 const Comic = require('../models/comics.js')
 
