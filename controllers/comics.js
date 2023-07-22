@@ -53,7 +53,7 @@ router.get('/search', (req, res) => {
 })
 
 // NEW
-router.get('/new', (req, res) => {
+router.get('/new', authRequired, (req, res) => {
     res.render('new.ejs', { currentUser: req.session.currentUser })
 })
 
@@ -81,7 +81,7 @@ router.put('/:id', authRequired, (req, res) => {
 })
 
 // CREATE
-router.post('/', (req, res) => {
+router.post('/', authRequired, (req, res) => {
     Comic.create(req.body, (err, createdComic) => {
         if (err) {console.log(err)}
         else {res.redirect('/captain-collector')
