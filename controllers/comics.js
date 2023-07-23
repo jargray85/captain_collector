@@ -30,12 +30,34 @@ const authRequired = (req, res, next) => {
 
 // INDEX
 router.get('/', (req, res) => {
-    Comic.find({}, (err, allComics) => {
-        res.render('index.ejs', {
-            comics: allComics,
-            currentUser: req.session.currentUser
-        })   
-    })  
+    // User is logged in condition
+    if (req.session.currentUser) {
+        const userId = req.session.currentUser._id
+
+        User.findById(userId)
+            .populate('comics')
+            .exec((err, foundUser) => {
+                if (err) {
+                    console.log(err)
+                    res.send('Error retrieving user data.')
+                    return
+                }
+
+                res.render('index.ejs', {
+                    comics: foundUser.comics,
+                    currentUser: req.session.currentUser
+                })
+            })
+    } else {
+        //User not logged in
+        
+        Comic.find({}, (err, allComics) => {
+            res.render('index.ejs', {
+                comics: allComics,
+                currentUser: req.session.currentUser
+            })   
+        }) 
+    }
 })
 
 // ** SEARCH **
