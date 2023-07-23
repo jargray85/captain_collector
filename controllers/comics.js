@@ -82,10 +82,26 @@ router.put('/:id', authRequired, (req, res) => {
 
 // CREATE
 router.post('/', authRequired, (req, res) => {
-    Comic.create(req.body, (err, createdComic) => {
+    // Get user id of logged in user
+    const userId = req.session.currentUser._id
+
+    // Create new comic object using the req body
+    const newComicData = {
+        title: req.body.title,
+        image: req.body.image,
+        number: req.body.number,
+        volume: req.body.volume,
+        publisher: req.body.publisher,
+        year: req.body.year,
+    }
+
+    // Find user by ID and update comics array
+    User.findByIdAndUpdate(userId, { $push: { comics: newComicData } }, { new: true }, (err, updatedUser) => {
         if (err) {console.log(err)}
-        else {res.redirect('/captain-collector')
-        console.log(createdComic)}
+        else {
+            console.log(newComicData)
+            res.redirect('/captain-collector')
+        }
     })
 })
 
