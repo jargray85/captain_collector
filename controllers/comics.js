@@ -30,6 +30,7 @@ const authRequired = (req, res, next) => {
 
 // INDEX
 router.get('/', (req, res) => {
+
     // User is logged in condition
     if (req.session.currentUser) {
         const userId = req.session.currentUser._id
@@ -49,8 +50,8 @@ router.get('/', (req, res) => {
                 })
             })
     } else {
+
         //User not logged in
-        
         Comic.find({}, (err, allComics) => {
             res.render('index.ejs', {
                 comics: allComics,
