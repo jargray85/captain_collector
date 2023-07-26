@@ -69,7 +69,8 @@ router.get('/search', (req, res) => {
         else {
             // console.log(searchResults)
             res.render('searchresults.ejs', {
-                comics: searchResults
+                comics: searchResults,
+                currentUser: req.session.currentUser || null // Search current user's comics or null if not auth'd
             })
         }
     })
