@@ -126,11 +126,39 @@ router.put('/:id', authRequired, (req, res) => {
         return
     }
 
-    Comic.findByIdAndUpdate(req.params.id, req.body, { new: true}, 
-        (err, updatedComic) => {
-            if (err) {console.log(err), res.send(err)}
-            else (console.log(updatedComic), res.redirect('/captain-collector'))
-        })
+    User.findById(currentUser._id, (err, user) => {
+        if (err) {
+            console.log(err)
+            res.send("Error fetching user")
+        } else if (!user) {
+            console.log(`User with id ${currentUser._id} not found`)
+            res.send("User not found")
+        } else {
+            const foundComic = user.comics.find(comic => comic._id.equals(req.params.id))
+            if (!foundComic) {
+                console.log(`comic with id ${req.params.id} not found`)
+                res.send("Comic not found")
+            } else {
+                // update found comic in user's comic array
+                foundComic.title = req.body.title
+                foundComic.image = req.body.image
+                foundComic.number = req.body.number
+                foundComic.volume = req.body.volume
+                foundComic.publisher = req.body.publisher
+                foundComic.year = req.body.year
+
+                user.save((err) => {
+                    if (err) {
+                        console.log(err)
+                        res.send('An error occurred while saving the updated comic')
+                    } else {
+                        console.log('Comic updated successfully:', foundComic)
+                        res.redirect('/captain-collector')
+                    }
+                })
+            }
+        }
+    })
 })
 
 // CREATE
