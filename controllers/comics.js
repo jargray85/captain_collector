@@ -166,11 +166,18 @@ router.get('/:id/edit', authRequired, (req, res) => {
 // SHOW
 router.get('/:id', (req, res) => {
     Comic.findById(req.params.id, (err, foundComic) => {
-        if (err) {console.log(err)}
-        res.render('show.ejs', {
-            comic: foundComic,
-            currentUser: req.session.currentUser
-        })
+        if (err) {
+            console.log(err)
+            res.send("An error occured while fetching the comic")
+        } else if (!foundComic) {
+            // handle 
+            res.send("Comic not found")
+        } else {
+            res.render('show.ejs', {
+                comic: foundComic,
+                currentUser: req.session.currentUser
+            })
+        }
     })
 })
 
