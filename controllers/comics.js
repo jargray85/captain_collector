@@ -165,20 +165,43 @@ router.get('/:id/edit', authRequired, (req, res) => {
 
 // SHOW
 router.get('/:id', (req, res) => {
-    Comic.findById(req.params.id, (err, foundComic) => {
-        if (err) {
-            console.log(err)
-            res.send("An error occured while fetching the comic")
-        } else if (!foundComic) {
-            // handle 
-            res.send("Comic not found")
-        } else {
-            res.render('show.ejs', {
-                comic: foundComic,
-                currentUser: req.session.currentUser
-            })
-        }
-    })
+
+    const currentUser = req.session.currentUser
+
+    if (currentUser) {
+        User.findById(currentUser._id, (err, user) => {
+            if (err) {
+                console.log(err)
+                res.send("An error has occurred while fetching the comic")
+            } else {
+                const foundComic = user.comics.find(comic => comic.id === req.params.id)
+                if (foundComic) {
+                    res.render('show.ejs', {
+                        comic: foundComic,
+                        currentUser: req.session.currentUser 
+                    })
+                } else {
+                    res.send("Comic not found")
+                }
+            }
+        })
+    } else {
+
+        Comic.findById(req.params.id, (err, foundComic) => {
+            if (err) {
+                console.log(err)
+                res.send("An error occured while fetching the comic")
+            } else if (!foundComic) {
+                // handle 
+                res.send("Comic not found")
+            } else {
+                res.render('show.ejs', {
+                    comic: foundComic,
+                    currentUser: req.session.currentUser
+                })
+            }
+        })
+    }
 })
 
 
