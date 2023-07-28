@@ -118,6 +118,14 @@ router.delete('/:id', authRequired, (req, res) => {
 
 // UPDATE
 router.put('/:id', authRequired, (req, res) => {
+
+    const currentUser = req.session.currentUser
+
+    if(!currentUser) {
+        res.redirect('users/signin')
+        return
+    }
+
     Comic.findByIdAndUpdate(req.params.id, req.body, { new: true}, 
         (err, updatedComic) => {
             if (err) {console.log(err), res.send(err)}
@@ -152,13 +160,32 @@ router.post('/', authRequired, (req, res) => {
 
 // EDIT
 router.get('/:id/edit', authRequired, (req, res) => {
-    Comic.findById(req.params.id, (err, foundComic) => {
-        if (err) {console.log(err)}
-        else {
-        res.render('edit.ejs', {
-            comic: foundComic,
-            currentUser: req.session.currentUser
-            })
+
+    const currentUser = req.session.currentUser
+
+    if(!currentUser) {
+        res.redirect('users/signin')
+        return
+    }
+
+    User.findById(currentUser._id, (err, user) => {
+        if (err) {
+            console.log(err)
+            res.send("Error fetching user")
+        } else if (!user) {
+            console.log(`User with id ${currentUser._id} not found`)
+            res.send("User not found")
+        } else {
+            const foundComic = user.comics.find(comic => comic._id.equals(req.params.id))
+            if (!foundComic) {
+                console.log(`comic with id ${req.params.id} not found`)
+                res.send("Comic not found")
+            } else {
+                res.render('edit.ejs', {
+                    comic: foundComic,
+                    currentUser: currentUser
+                })
+            }
         }
     })
 })
