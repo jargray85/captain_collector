@@ -64,16 +64,37 @@ router.get('/', (req, res) => {
 // ** SEARCH **
 router.get('/search', (req, res) => {
     const searchQuery = req.query.search
-    Comic.find({ title: { $regex: `${searchQuery}`, $options: 'i' }}, (err, searchResults) => {
-        if (err) {console.log(err)}
-        else {
-            // console.log(searchResults)
-            res.render('searchresults.ejs', {
-                comics: searchResults,
-                currentUser: req.session.currentUser || null // Search current user's comics or null if not auth'd
-            })
-        }
-    })
+    const currentUser = req.session.currentUser
+
+    // if user is signed in, search their comic array
+    if (currentUser) {
+        User.findById(currentUser._id, (err, user) => {
+            if (err) {
+                console.log(err)
+                res.send("An error occurred while searching comics")
+            } else {
+                const userComics = user.comics
+                const searchResults = userComics.filter(comic => comic.title.match(new RegExp(searchQuery, 'i')))
+                res.render('searchresults.ejs', {
+                    comics: searchResults,
+                    currentUser: currentUser
+                })
+            }
+        })
+    } else {
+
+        // otherwise search sample comics collection
+        Comic.find({ title: { $regex: `${searchQuery}`, $options: 'i' }}, (err, searchResults) => {
+            if (err) {console.log(err)}
+            else {
+                // console.log(searchResults)
+                res.render('searchresults.ejs', {
+                    comics: searchResults,
+                    currentUser: null 
+                })
+            }
+        })
+    }
 })
 
 // NEW
