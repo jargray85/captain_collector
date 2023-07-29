@@ -104,16 +104,27 @@ router.get('/new', authRequired, (req, res) => {
 
 // DELETE
 router.delete('/:id', authRequired, (req, res) => {
-    Comic.findByIdAndDelete(req.params.id, (err, deleteComic) => {
-        if (err) {
-            console.log(err)
-            res.send(err)
-        } else {
-            console.log(deleteComic)
-            res.redirect('/captain-collector')
-            return
+
+    const comicToDelete = req.params.id
+    const currentUser = req.session.currentUser
+
+    // Find user by ID first
+    User.findByIdAndUpdate(
+        currentUser._id, 
+        // pull comic from db array
+        { $pull: { comics: { _id: comicToDelete } } },
+        // save db after
+        { new: true },
+        (err, updatedUser) => {
+            if (err) {
+                console.log(err)
+                res.send("An error occurred while deleting the comic")
+            } else {
+                console.log(`Deleted comic with ID ${comicToDelete} from user ${updatedUser.username}`)
+                res.redirect('/captain-collector')
+            }
         }
-    })
+    )
 })
 
 // UPDATE
@@ -147,6 +158,7 @@ router.put('/:id', authRequired, (req, res) => {
                 foundComic.publisher = req.body.publisher
                 foundComic.year = req.body.year
 
+                // Save updated information to user
                 user.save((err) => {
                     if (err) {
                         console.log(err)
