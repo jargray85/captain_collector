@@ -51,7 +51,7 @@ router.post('/signin', (req, res) => {
             if (validLogin) {
                 req.session.currentUser = foundUser
                 // we are letting the session know that we have logged in
-                res.redirect('/captain-collector')
+                res.redirect('/')
             } else {
                 res.send('Invalid username or password')
             }
@@ -67,7 +67,7 @@ router.get('/signout', (req, res) => {
     // this destroys the session
     // you can always access the user IF signed in, in this req object
     req.session.destroy()
-    res.redirect('/captain-collector')
+    res.redirect('/')
 })
 
 module.exports = router

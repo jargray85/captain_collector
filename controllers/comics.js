@@ -121,7 +121,7 @@ router.delete('/:id', authRequired, (req, res) => {
                 res.send("An error occurred while deleting the comic")
             } else {
                 console.log(`Deleted comic with ID ${comicToDelete} from user ${updatedUser.username}`)
-                res.redirect('/captain-collector')
+                res.redirect('/')
             }
         }
     )
@@ -165,7 +165,7 @@ router.put('/:id', authRequired, (req, res) => {
                         res.send('An error occurred while saving the updated comic')
                     } else {
                         console.log('Comic updated successfully:', foundComic)
-                        res.redirect('/captain-collector')
+                        res.redirect('/')
                     }
                 })
             }
@@ -193,7 +193,7 @@ router.post('/', authRequired, (req, res) => {
         if (err) {console.log(err)}
         else {
             console.log(newComicData)
-            res.redirect('/captain-collector')
+            res.redirect('/')
         }
     })
 })
