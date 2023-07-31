@@ -24,7 +24,7 @@ app.use(session({
 const db = mongoose.connection
 
 // CONNECT TO MONGO
-mongoose.connect(process.env.DATABASE_URL + '/captain-collector', {
+mongoose.connect(process.env.MONGODB_URI + '/captain-collector', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     dbName: 'captain-collector'
