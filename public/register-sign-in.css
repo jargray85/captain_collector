@@ -1,42 +1,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Rampart+One&display=swap');
 
-h1 {
-    text-align: center;
-    font-family: 'Bangers';
-    font-size: 3em;
-    margin-bottom: -3em;
+body {
+    background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20210309/pngtree-brilliant-bright-red-pop-style-background-image_581311.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-/* Centering Form Container */
+h1 {
+    text-align: center;
+    color: black;
+    font-family: 'Bangers';
+    font-size: 3em;
+    margin-top: 2em;
+}
+
+.back-button {
+    display: block; 
+    text-align: center;
+    text-decoration: none; 
+    color: white; 
+    font-size: 1em; 
+    margin-top: 1em; 
+    margin-bottom: -12em;
+}
+
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-  }
-
-  /* Form Fieldset Styles */
+}
+ 
 fieldset {
     border: none;
     padding: 8px;
     margin-bottom: 16px;
-  }
+}
   
-  label {
+label {
     font-weight: bold;
-  }
+}
   
-  input {
+input {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 100%; /* Change this to set the field width */
-    max-width: 250px; /* Add this line to limit the maximum width */
-    box-sizing: border-box; /* Add this line to include padding in the width */
-  }
+    width: 100%; 
+    max-width: 250px; 
+    box-sizing: border-box; 
+}
 
-  /* Form Submit Button */
+
 input[type="submit"] {
     background-color: #007bff;
     color: #fff;
@@ -44,8 +60,8 @@ input[type="submit"] {
     border-radius: 4px;
     padding: 8px 16px;
     cursor: pointer;
-  }
+}
   
-  input[type="submit"]:hover {
+input[type="submit"]:hover {
     background-color: #0056b3;
-  }
+}
