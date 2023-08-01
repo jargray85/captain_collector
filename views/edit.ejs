@@ -10,7 +10,7 @@
     <%- include ('./partials/header.ejs') %>
 
     <h2>Edit <%= comic.title %> </h2>
-    <form action="/captain-collector/<%= comic.id %>?_method=PUT" method="POST">
+    <form action="/<%= comic.id %>?_method=PUT" method="POST">
         Title: <input type="text" name="title" value="<%= comic.title %>"> <br>
         Image: <input type="text" name="image" value="<%= comic.image %>"> <br>
         Number: <input type="number" name="number" value="<%= comic.number %>"> <br>

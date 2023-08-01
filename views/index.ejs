@@ -10,21 +10,21 @@
     <%- include ('./partials/header.ejs') %>
 
     <div id="search-container">
-        <form action="/captain-collector/search" method="GET">
+        <form action="/search" method="GET">
             <input type="text" name="search" placeholder="Search by title..." id="search-bar">
             <button type="submit" id="search-button">Search</button>
         </form>
     </div>    
 
     <h4>
-        <a href="captain-collector/new" id="add-new">Add New Comic</a>
+        <a href="/new" id="add-new">Add New Comic</a>
     </h4>
 
     <ul>
         <% comics.forEach(comic => { %>
         <div id="comic-container">
             <li>
-                <a href="/captain-collector/<%= comic.id %>" id="comic-title"><%= comic.title %></a> <br>
+                <a href="/<%= comic.id %>" id="comic-title"><%= comic.title %></a> <br>
                 <img src="<%= comic.image %>" alt=""> <br>
                 Number: <%= comic.number %> <br>
 
