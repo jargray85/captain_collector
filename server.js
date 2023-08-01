@@ -52,7 +52,7 @@ app.use('/users', usersController)
 // })
 
 // PORT
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 4000
 app.listen(PORT, () => {
     console.log('Hello Seattle, I\'m listening... on PORT', PORT)
 })
