@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Rampart+One&display=swap');
 
 body {
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfZkXLeubLrgbl_JlFMNcUaFh8kh_1qfJJIuteTDkFocjsyDSBRpVkhc_CEOdZjwRwzt4&usqp=CAU);
-    background-size: contain;
+    background-color: dodgerblue;
 }
 
 #search-container {
@@ -51,8 +50,7 @@ li {
 #comic-container {
     border: 3px solid;
     padding: 10px;
-    background-image: url(https://media.istockphoto.com/id/1318099651/vector/comic-explosion-background-vector-illustration.jpg?s=612x612&w=0&k=20&c=EEobfb9GTOkHjrP1Y3uBWllZkVsPp2Qxj8cX73CiNo8=);
-    background-size: contain;
+    background-color: coral;
     border-radius: 10px;
 }
 
