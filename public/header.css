@@ -44,6 +44,11 @@
     color: #ff1361;
 }
 
+#signout-link {
+    text-decoration: none;
+    color: antiquewhite;
+}
+
 @keyframes textclip {
     to {
         background-position: 200% center;

@@ -1,10 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Rampart+One&display=swap');
 
 body {
-    background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20210309/pngtree-brilliant-bright-red-pop-style-background-image_581311.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-color: crimson;
 }
 
 h1 {
@@ -31,6 +28,12 @@ form {
     align-items: center;
     justify-content: center;
     height: 100vh;
+}
+
+label {
+    color: cornflowerblue;
+    font-family: "Bangers";
+    letter-spacing: 0.1em;
 }
  
 fieldset {
