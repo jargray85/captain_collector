@@ -71,3 +71,70 @@ h4 {
     text-decoration: none;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
+
+/* Media query for mobile devices (iPhone X and larger) */
+@media (max-width: 757px) {
+    body {
+        background-color: dodgerblue;
+    }
+
+    #search-container {
+        text-align: center;
+    }
+
+    #search-bar {
+        width: 80%; /* Adjust as needed */
+        max-width: 300px; /* Limit to a reasonable width */
+        margin: 0 auto;
+    }
+
+    #search-button {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        gap: 20px; /* Add some spacing between items */
+    }
+
+    li {
+        flex-basis: calc(33.33% - 20px); /* 3 items per row with spacing in between */
+        background-color: coral;
+        border-radius: 5px;
+        text-align: center; /* Center content horizontally */
+        font-size: 1em; /* Adjust as needed */
+    }
+
+    img {
+        max-width: 40%; /* Scale down images to fit the available space */
+        height: auto; /* Maintain aspect ratio */
+        margin: 10px auto; /* Center images vertically */
+    }
+
+    #comic-title {
+        font-size: 1em; /* Adjust the title font size */
+        color: black; /* Ensure the title is visible */
+        margin: 5px 0; /* Add some space around the title */
+    }
+
+    p {
+        font-size: 0.8em; /* Adjust the font size for comic number */
+        color: black; /* Ensure visibility of comic number */
+        margin: 5px 0; /* Add some space around the comic number */
+    }
+
+    #comic-container {
+        padding: 1px; /* Adjust padding */
+        margin: 0; /* Remove margin */
+    }
+
+    #add-new {
+        color: red;
+    }
+}

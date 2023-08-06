@@ -54,3 +54,45 @@
         background-position: 200% center;
     }
 }
+
+
+@media (max-width: 757px) {
+    .container {
+        padding: 10px;
+    }
+
+    .links {
+        position: absolute;
+        top: 1%; 
+        margin-right: 0.4em;
+        font-family: 'Bangers';
+    }
+
+    #main-link {
+        background-image: linear-gradient(
+            -225deg,
+            #231557 0%,
+            #7b33c9 29%,
+            #ff1361 67%,
+            #fff800 100%
+        );
+        font-family: 'Bangers';
+        background-clip: border-box;
+        background-size: 200% auto;
+        color: #fff;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 2.5em; /* Adjust as needed */
+        text-align: center; /* Center text horizontally */
+        padding-right: 10px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        margin: 0 auto; /* Center text horizontally */
+    }
+
+    #register-link,
+    #signin-link {
+        color: antiquewhite;
+        margin-top: 1em; /* Adjust as needed */
+    }
+}
