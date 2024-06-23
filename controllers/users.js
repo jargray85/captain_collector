@@ -23,7 +23,7 @@ router.post('/register', (req, res) => {
     // first lets see if somebody else already has this username
     User.findOne({username: req.body.username}, (err, userExists) => {
         if (userExists) {
-            res.send('that username is taken')
+            res.render('users/register.ejs', { error: 'That username is taken. Please choose another one.' })
         } else {
             User.create(req.body, (err, createdUser) => {
                 console.log(createdUser)
