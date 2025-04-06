@@ -1,10 +1,9 @@
-// DEPENDENCIES
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 const Comic = require('./models/comics.js')
-require('dotenv').config()
 const usersController = require('./controllers/users.js')
 const comicsController = require('./controllers/comics.js')
 const session = require('express-session')
