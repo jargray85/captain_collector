@@ -15,10 +15,10 @@ console.log('Here is the session secret')
 console.log(SESSION_SECRET)
 // Secret
 app.use(session({
-    secret: SESSION_SECRET, 
-    resave: true, // https://www.npmjs.com/package/express-session#resave
-    saveUninitialized: true // ^^
-}))
+    secret: process.env.SESSION_SECRET || 'fallback_secret',
+    resave: false,
+    saveUninitialized: false
+  }));
 
 // GLOBAL CONFIGURATION
 const db = mongoose.connection
